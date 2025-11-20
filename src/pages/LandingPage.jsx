@@ -11,7 +11,7 @@ const LandingPage = () => {
             <div className='quotes'>
                 <h4>EAT SMART, LIVE <span>STRONG</span></h4>
                 <p>Your health journey starts with a smile — let’s optimize your path to a healthier you</p>
-                <button>Start Meal Survey</button>
+                <button>Build your plan</button>
             </div>
         </div>
     </div>

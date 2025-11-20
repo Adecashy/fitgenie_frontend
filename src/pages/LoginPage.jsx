@@ -47,22 +47,26 @@ const LoginPage = () => {
     }
 
   return (
-    <div className='login-page'>
-        <div className='header'>
-            <h1>LOGIN</h1>
+    <div className='container-body'>
+        <div className='container-child'>
+            <div className='login-page'>
+                <div className='header'>
+                    <h1>LOGIN</h1>
+                </div>
+                <form className='form' onSubmit={handleSubmit(onSubmit)}>
+                    <div>
+                        <input type="email" id='email' {...register("email")} placeholder='Email' />
+                        {errors.email && <h5 className="error-msg">{errors.email.message}</h5>}
+                    </div>
+                    <div>
+                        <input type="password" id='name' {...register("password")} placeholder='Password' />
+                        {errors.password && <h5 className="error-msg">{errors.password.message}</h5>}
+                    </div>
+                    <span className='login-btn'><button disabled={submitting}>Login</button></span>
+                    <p>Don't have an account? <Link to="/signup" className='gotologin'>Sign Up</Link></p>
+                </form>
+            </div>
         </div>
-        <form className='form' onSubmit={handleSubmit(onSubmit)}>
-            <div>
-                <input type="email" id='email' {...register("email")} placeholder='Email' />
-                {errors.email && <h5 className="error-msg">{errors.email.message}</h5>}
-            </div>
-            <div>
-                <input type="password" id='name' {...register("password")} placeholder='Password' />
-                {errors.password && <h5 className="error-msg">{errors.password.message}</h5>}
-            </div>
-            <span className='login-btn'><button disabled={submitting}>Login</button></span>
-            <p>Don't have an account? <Link to="/signup" className='gotologin'>Sign Up</Link></p>
-        </form>
     </div>
   )
 }

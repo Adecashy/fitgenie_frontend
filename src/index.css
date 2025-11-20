@@ -4,6 +4,31 @@
     box-sizing: border-box;
     font-family: sans-serif;
 }
+body{
+    background-color: #193940;
+}
+
+.container-body{
+    height: 100vh;
+    background-image: url("/src/assets/backgrd\ img.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    z-index: 1;
+}
+.container-body::after{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+    backdrop-filter: brightness(35%);
+}
+.container-child{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 .nav {
     display: flex;
@@ -17,6 +42,10 @@
     .logo{
         text-decoration: none;
         color: #85e77a;
+
+        span{
+            color: #033641;
+        }
     }
 
     .menuItems{
@@ -201,4 +230,192 @@ button:disabled{
     font-size: 13px;
     color: red;
     margin-top: 3px;
+}
+.dashboard-nav{
+    display: flex;
+    background: #6d8586;
+    justify-content: space-between;
+    padding: 1rem;
+    align-items: center;
+    width: 100%;
+    /* position: fixed; */
+
+    .logo{
+        text-decoration: none;
+        color: #85e77a;
+
+        span{
+            color: #033641;
+        }
+    }
+
+    .menuItems{
+        display: flex;
+        gap: 1.5rem;
+        align-items: center;
+        
+        .menu{
+            color: #afc0ce;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 500;
+            cursor: pointer;
+        }
+        .menu:hover{
+            font-weight: 700;
+            font-size: 22px;
+            color: #85e77a;
+        }
+    }
+
+}
+.userDashNav{
+    display: flex;
+    gap: 4rem;
+    align-items: center;
+
+    .dash-items{
+        display: flex;
+        gap: 1.5rem;
+        align-items: center;
+
+        .menu{
+            color: #afc0ce;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 500;
+            cursor: pointer;
+        }
+        .menu:hover{
+            font-weight: 700;
+            font-size: 22px;
+            color: #85e77a;
+        }
+    }
+}
+.logout-page button{
+    padding: .5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    margin-right: 5px;
+    background: red;
+    color: #fff;
+    font-size: 16px;
+}
+.profile-container {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 25px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.profile-title {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 25px;
+  font-weight: bold;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.info-item {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 8px;
+}
+
+.label {
+  font-weight: bold;
+  color: #555;
+}
+
+.value {
+  color: #333;
+}
+
+.edit-btn {
+  width: 100%;
+  padding: 12px;
+  margin-top: 25px;
+  background-color: #0066ff;
+  border: none;
+  color: white;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.edit-btn:hover {
+  background-color: #0053cc;
+}
+
+.update-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 25px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background: white;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.update-title {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.update-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.form-row label {
+  width: 140px;
+  font-weight: bold;
+}
+
+.form-row input,
+.form-row select {
+  flex: 1;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.update-btn {
+  margin-top: 20px;
+  padding: 12px;
+  background: #0066ff;
+  border: none;
+  color: white;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.update-btn:hover {
+  background: #0053cc;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
 }

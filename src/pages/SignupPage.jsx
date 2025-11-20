@@ -50,30 +50,34 @@ const SignupPage = () => {
     }
 
   return (
-    <div className='signup-page'>
-        <div className='header'>
-            <h1>REGISTER</h1>
+    <div className='container-body'>
+        <div className='container-child'>
+            <div className='signup-page'>
+                <div className='header'>
+                    <h1>REGISTER</h1>
+                </div>
+                <form className='form' onSubmit={handleSubmit(onSubmit)}>
+                    <div>
+                        <input type="text" id='name' {...register("name")} placeholder='Name' />
+                        {errors.name && <h5 className="error-msg">{errors.name.message}</h5>}
+                    </div>
+                    <div>
+                        <input type="email" id='email' {...register("email")} placeholder='Email' />
+                        {errors.email && <h5 className="error-msg">{errors.email.message}</h5>}
+                    </div>
+                    <div>
+                        <input type="text" id='gender' {...register("gender")} placeholder='Gender' />
+                        {errors.gender && <h5 className="error-msg">{errors.gender.message}</h5>}
+                    </div>
+                    <div>
+                        <input type="password" id='password' {...register("password")} placeholder='Password' />
+                        {errors.password && <h5 className="error-msg">{errors.password.message}</h5>}
+                    </div>
+                    <span><button disabled={submitting}>Create Account</button></span>
+                    <p>Already have an account? <Link to="/login" className='gotologin'>Login</Link></p>
+                </form>
+            </div>
         </div>
-        <form className='form' onSubmit={handleSubmit(onSubmit)}>
-            <div>
-                <input type="text" id='name' {...register("name")} placeholder='Name' />
-                {errors.name && <h5 className="error-msg">{errors.name.message}</h5>}
-            </div>
-            <div>
-                <input type="email" id='email' {...register("email")} placeholder='Email' />
-                {errors.email && <h5 className="error-msg">{errors.email.message}</h5>}
-            </div>
-            <div>
-                <input type="text" id='gender' {...register("gender")} placeholder='Gender' />
-                {errors.gender && <h5 className="error-msg">{errors.gender.message}</h5>}
-            </div>
-            <div>
-                <input type="password" id='password' {...register("password")} placeholder='Password' />
-                {errors.password && <h5 className="error-msg">{errors.password.message}</h5>}
-            </div>
-            <span><button disabled={submitting}>Create Account</button></span>
-            <p>Already have an account? <Link to="/login" className='gotologin'>Login</Link></p>
-        </form>
     </div>
   )
 }

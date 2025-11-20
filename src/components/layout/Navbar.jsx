@@ -32,7 +32,7 @@ const Navbar = ({ menuItems = defaultMenuItems }) => {
 
   return (
     <div className='nav'>
-        <Link className='logo' to="/"><h2>FitGenie</h2></Link>
+        <Link className='logo' to="/"><h2>Fit<span>Genie</span></h2></Link>
         <div className='menuItems'>
             {
                 menuItems.map((item, index) => (

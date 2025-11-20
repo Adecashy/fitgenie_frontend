@@ -1,0 +1,9 @@
+import React from 'react'
+
+const History = () => {
+  return (
+    <div>History Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione aspernatur nemo voluptas error illo quas vero et cum, obcaecati ab commodi odio a deleniti laudantium alias hic iure magni in laboriosam accusamus doloribus voluptatibus sit culpa ad? Modi eius possimus consectetur illum rem rerum iste. Vitae laudantium laborum ullam repellendus laboriosam quisquam vel amet aliquam obcaecati vero rem recusandae consequuntur mollitia inventore iure eius, nulla suscipit accusantium expedita, quas numquam voluptas quam? Non modi eveniet aliquam nemo quidem et excepturi doloremque officiis veniam cumque, nesciunt quos blanditiis. Quos deserunt expedita debitis, itaque excepturi, asperiores vitae perspiciatis fugiat quas veniam natus facere dolore cupiditate cum. Nisi, fugit necessitatibus recusandae aut atque, deserunt repellat exercitationem quod unde hic expedita placeat nostrum animi numquam voluptatem officia quam molestias explicabo temporibus sint inventore consectetur tempore incidunt porro? Id ducimus nihil eligendi amet at praesentium ipsam minus. Vero exercitationem, at expedita esse ab et numquam reiciendis quaerat voluptate dolorem repellendus officia non provident impedit consequatur, excepturi vitae eius tenetur iusto aut! Voluptatum molestiae, ea inventore ratione, dolorum atque suscipit rerum officia possimus velit, error in iste vitae distinctio delectus sunt libero! Temporibus ducimus cum facilis, optio repudiandae ullam velit? Ad tenetur doloremque laboriosam aperiam incidunt.</div>
+  )
+}
+
+export default History

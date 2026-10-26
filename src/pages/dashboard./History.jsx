@@ -168,7 +168,7 @@ const formatLabel = (value) => {
   const initializeSubscription = async (plan) => {
     if (submittingPlan) return
 
-    const token = localStorage.getItem('token')
+    const token = JSON.parse(localStorage.getItem('token'))
 
     if (!token) {
       toast.error('Please log in to choose a subscription.')

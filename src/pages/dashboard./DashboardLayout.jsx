@@ -6,12 +6,13 @@ import ProfilePage from './ProfilePage'
 import History from './History'
 import UpdateProfile from './UpdateProfile'
 import GeneratePlan from './GeneratePlan'
+import Footer from '../../components/layout/Footer'
 
 const DashboardLayout = () => {
   return (
-    <div>
+    <div className='flex min-h-screen flex-col overflow-x-hidden bg-[#080d1b] text-white'>
         <DashboardNav />
-        <div>
+        <main className='mx-auto w-full max-w-[1600px] flex-1 px-4 py-6 sm:px-6 sm:py-8 lg:px-8 lg:py-10'>
           <Routes>
             <Route path='/' element={<DashboardIndex />} />
             <Route path='/profile' element={<ProfilePage />} />
@@ -19,7 +20,8 @@ const DashboardLayout = () => {
             <Route path='/history' element={<History />} />
             <Route path='/generate-plan' element={<GeneratePlan />} />
           </Routes>
-        </div>
+        </main>
+        <Footer />
     </div>
   )
 }

@@ -4,6 +4,7 @@ import { Route, Routes } from 'react-router-dom'
 import LandingPage from '../../pages/LandingPage'
 import SignupPage from '../../pages/SignupPage'
 import LoginPage from '../../pages/LoginPage'
+import Footer from './Footer'
 
 const PublicPages = () => {
   return (
@@ -13,6 +14,8 @@ const PublicPages = () => {
         <Routes>
             <Route path='/' element={<LandingPage />} />
         </Routes>
+
+        <Footer />
     </div>
   )
 }

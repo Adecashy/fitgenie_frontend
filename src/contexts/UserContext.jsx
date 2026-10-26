@@ -1,5 +1,7 @@
 import { createContext, useState } from "react"
 
+const API_URL = "https://fitgenie-backend-2izk.onrender.com/api"
+
 export const userContext = createContext()
 
 const UserProvider = ({ children }) => {
@@ -8,7 +10,7 @@ const UserProvider = ({ children }) => {
 
     const getUserProfile = async () => {
         try {
-            const res = await fetch(`http://localhost:7707/api/users/my-profile`, {
+            const res = await fetch(`${API_URL}/users/my-profile`, {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",

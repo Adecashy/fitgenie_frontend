@@ -23,6 +23,13 @@ const App = () => {
           </div>
         </UserProvider>
       </BrowserRouter>
+      <vapi-widget assistant-id="bc07a52d-a100-40bc-9a02-9ff543c6c182" public-key="0ce6da1c-83e9-402d-80bf-f0fe8bb849bf"></vapi-widget>
+
+<script
+  src="https://unpkg.com/@vapi-ai/client-sdk-react/dist/embed/widget.umd.js"
+  async
+  type="text/javascript"
+></script>
     </div>
   )
 }

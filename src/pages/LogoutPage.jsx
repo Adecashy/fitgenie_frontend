@@ -4,13 +4,14 @@ import { toast } from 'sonner'
 
 const LogoutPage = () => {
     const navigate = useNavigate()
+    const API_URL = "https://fitgenie-backend-2izk.onrender.com/api"
     
     const handleButton = async () => {
         const token = JSON.parse(localStorage.getItem("token"))
         console.log(token);
         
         try {
-            const res = await fetch("http://localhost:7707/api/auth/logout", {
+            const res = await fetch(`${API_URL}/auth/logout`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -35,8 +36,8 @@ const LogoutPage = () => {
         }
     }
   return (
-    <div className='logout-page'>
-        <button onClick={handleButton}>Logout</button>
+    <div>
+        <button onClick={handleButton} className='px-3.5 py-2 rounded-xl cursor-pointer hover:bg-[#b9f65a]/10 hover:text-[#b9f65a]'>Logout</button>
     </div>
   )
 }

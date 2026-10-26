@@ -9,15 +9,15 @@ const defaultMenuItems = [
     },
     {
         label: "Programmes",
-        path: "/programmes"
+        path: "/"
     },
     {
         label: "Help",
-        path: "/help"
+        path: "/"
     },
     {
         label: "Discover",
-        path: "/discover"
+        path: "/"
     }
 ]
 

@@ -179,7 +179,7 @@ const formatLabel = (value) => {
     setSubmittingPlan(plan)
 
     try {
-      const res = await fetch(`${API_URL}/api/subscription/initialize`, {
+      const res = await fetch(`${API_URL}/subscription/initialize`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

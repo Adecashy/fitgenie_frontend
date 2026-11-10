@@ -145,7 +145,7 @@ const LandingPage = () => {
               <div className="absolute -right-2 top-24 animate-[float_4s_ease-in-out_infinite] rounded-2xl border border-white/10 bg-[#192238] p-3 shadow-2xl sm:-right-6 sm:p-4">
                 <div className='flex items-center gap-3'>
                   <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-lime-300 to-emerald-400 text-lg text-slate-950">✦</div>
-                  <div cla>
+                  <div>
                     <p className='text-sm font-bold'>AI-powered</p>
                     <p className='text-xs text-slate-400'>Made for your goals</p>
                   </div>

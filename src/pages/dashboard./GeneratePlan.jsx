@@ -1,5 +1,5 @@
 
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import {
@@ -24,6 +24,8 @@ import {
   WandSparkles,
   Zap,
 } from "lucide-react";
+import { userContext } from "../../contexts/UserContext";
+import { isProfileComplete } from "../../utils/checkprofile";
 
 const API_URL = "https://fitgenie-backend-2izk.onrender.com/api";
 
@@ -66,8 +68,9 @@ const getDayName = (day, index) => {
   return `Day ${index + 1}`;
 };
 
-export default function GeneratePlan() {
+const GeneratePlan = () => {
   const navigate = useNavigate();
+  const { getUserProfile } = useContext(userContext)
 
   const [weeklyPlan, setWeeklyPlan] = useState([]);
   const [loadingPlan, setLoadingPlan] = useState(true);
@@ -115,8 +118,27 @@ export default function GeneratePlan() {
   }, []);
 
   useEffect(() => {
-    fetchLatestPlan();
-  }, [fetchLatestPlan]);
+    const checkProfileBeforeLoading = async () => {
+      const token = JSON.parse(localStorage.getItem("token"))
+      if (!token) {
+        toast.error("Please log in to continue")
+        navigate("/login", { replace: true })
+        return
+      }
+
+      const userProfile = await getUserProfile()
+      if (!isProfileComplete(userProfile)) {
+        toast.error("You must fill in your profile page before going ahead.")
+        navigate("/dashboard/profile")
+        return
+      }
+
+      fetchLatestPlan();
+    }
+
+    checkProfileBeforeLoading()
+
+  }, [fetchLatestPlan, getUserProfile, navigate]);
 
   const handleGeneratePlan = async () => {
     const token = JSON.parse(localStorage.getItem("token"));
@@ -130,7 +152,7 @@ export default function GeneratePlan() {
     setGenerating(true);
 
     try {
-      const response = await fetch(`${API_URL}/api/fit-plan/create`, {
+      const response = await fetch(`${API_URL}/fit-plan/create`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -575,3 +597,5 @@ export default function GeneratePlan() {
     </main>
   );
 }
+
+export default GeneratePlan

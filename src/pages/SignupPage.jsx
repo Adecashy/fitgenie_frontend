@@ -40,7 +40,8 @@ const SignupPage = () => {
                 }
             })
             const result = await res.json()
-            if (!result.ok || result.success) {
+            console.log(result)
+            if (!res.ok || result.success === false) {
                 toast.error(result.message || 'Unable to create your account.')
                 return
             }

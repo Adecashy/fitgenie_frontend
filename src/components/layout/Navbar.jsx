@@ -55,7 +55,7 @@ const Navbar = ({ menuItems = defaultMenuItems }) => {
                 {menuItems.map((item) => {
                     const isActive = location.pathname === item.path
                     return(
-                        <Link key={item.path} to={item.path} className={`relative py-2 text-sm font-medium transition-colors duration-200 ${isActive ? "text-[#b9f65a]" : "text-slate-300 hover:text-[#b9f65a]"}`}>
+                        <Link key={item.label} to={item.path} className={`relative py-2 text-sm font-medium transition-colors duration-200 ${isActive ? "text-[#b9f65a]" : "text-slate-300 hover:text-[#b9f65a]"}`}>
                             {item.label}
                             <span className={`absolute bottom-0 left-0 h-0.5 rounded-full bg-[#b9f65a] transition-all duration-300 ${isActive ? 'w-full' : 'w-0'}`} />
                         </Link>
@@ -84,7 +84,7 @@ const Navbar = ({ menuItems = defaultMenuItems }) => {
                 {menuItems.map((item) => {
                     const isActive = location.pathname === item.path
                     return (
-                        <Link key={item.path} to={item.path} onClick={closeMobileMenu} className={`ounded-xl px-4 py-3 text-sm font-medium transition-colors ${isActive ? 'bg-[#b9f65a]/10 text-[#b9f65a]' : 'text-slate-300 hover:bg-white/5 hover:text-[#b9f65a]'}`}>{item.label}</Link>
+                        <Link key={item.label} to={item.path} onClick={closeMobileMenu} className={`ounded-xl px-4 py-3 text-sm font-medium transition-colors ${isActive ? 'bg-[#b9f65a]/10 text-[#b9f65a]' : 'text-slate-300 hover:bg-white/5 hover:text-[#b9f65a]'}`}>{item.label}</Link>
                     )
                 })}
                 <div className="mt-3 grid grid-cols-2 gap-3 border-t border-white/10 pt-4">

@@ -20,6 +20,7 @@ import {
   CheckCircle2,
   Utensils,
 } from 'lucide-react'
+import { isProfileComplete } from '../../utils/checkprofile'
 
 const DashboardIndex = () => {
   const navigate = useNavigate()
@@ -33,8 +34,9 @@ const DashboardIndex = () => {
   // Read the token as stored by LoginPage.
   const token = JSON.parse(localStorage.getItem('token'))
 
+  const API_URL = "https://fitgenie-backend-2izk.onrender.com/api"
+
   const getLatestFitPlan = async () => {
-    const API_URL = "https://fitgenie-backend-2izk.onrender.com/api"
 
     try {
       const res = await fetch(`${API_URL}/fit-plan/latest`, {
@@ -82,7 +84,15 @@ const DashboardIndex = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  const startPlanBuildUp = () => {
+  const startPlanBuildUp = async () => {
+    const userProfile = await getUserProfile
+
+    if (!isProfileComplete(userProfile)) {
+      toast.error("You must fill in your profile page before going ahead.")
+      navigate("/dashboard/profile")
+      return
+    }
+
     navigate('/dashboard/generate-plan')
   }
 
@@ -93,10 +103,17 @@ const DashboardIndex = () => {
   const generateFitPlan = async () => {
     if (submitting) return
 
+    const userProfile = await getUserProfile
+    if (!isProfileComplete(userProfile)) {
+      toast.error("You must fill in your profile page before going ahead.")
+      navigate("/dashboard/profile")
+      return
+    }
+
     setSubmitting(true)
 
     try {
-      const res = await fetch('http://localhost:7707/api/fit-plan/create', {
+      const res = await fetch(`${API_URL}/fit-plan/create`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

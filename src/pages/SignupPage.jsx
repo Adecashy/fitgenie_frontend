@@ -44,8 +44,8 @@ const SignupPage = () => {
                 toast.error(result.message || 'Unable to create your account.')
                 return
             }
-            navigate("/login")
             toast.success(result.message || "Registration successful")
+            navigate("/login")
         } catch (error) {
             console.error('Signup error:', error)
             toast.error('Unable to connect to the server. Please try again.')

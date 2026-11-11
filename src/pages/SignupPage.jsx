@@ -88,7 +88,7 @@ const SignupPage = () => {
                         Real progress.
                     </h1>
                     <p className="mt-6 max-w-md text-base leading-7 text-slate-400">Build healthier habits with personalized fitness and meal plans designed around your goals, preferences, and lifestyle.</p>
-                    <div>
+                    <div className="mt-10 space-y-4">
                         {[
                             {
                                 icon: Target,

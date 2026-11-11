@@ -1,6 +1,6 @@
 
 import React, { useContext, useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useSearchParams } from 'react-router-dom'
 import { toast } from 'sonner'
 import {
   Activity,
@@ -106,8 +106,11 @@ const formatLabel = (value) => {
   const History = () => {
   const { profile, getUserProfile } = useContext(userContext)
   const navigate = useNavigate()
+  const [searchParams] = useSearchParams()
 
-  const [activeTab, setActiveTab] = useState('history')
+  const [activeTab, setActiveTab] = useState(
+    searchParams.get("tab") === "premium" ? "premium" : "history"
+  )
   const [plansHistory, setPlansHistory] = useState([])
   const [loadingHistory, setLoadingHistory] = useState(true)
   const [historyError, setHistoryError] = useState(false)

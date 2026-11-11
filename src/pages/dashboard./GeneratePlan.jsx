@@ -70,7 +70,7 @@ const getDayName = (day, index) => {
 
 const GeneratePlan = () => {
   const navigate = useNavigate();
-  const { getUserProfile } = useContext(userContext)
+  const { getUserProfile, profile } = useContext(userContext)
 
   const [weeklyPlan, setWeeklyPlan] = useState([]);
   const [loadingPlan, setLoadingPlan] = useState(true);
@@ -93,8 +93,7 @@ const GeneratePlan = () => {
         }
       });
 
-      const result = await response.json();
-      console.log(result)
+      const result = await response.json()
 
       if (!response.ok) {
         if (response.status === 404) {
@@ -147,6 +146,14 @@ const GeneratePlan = () => {
       toast.error("Please log in to generate your fitness plan.");
       navigate("/login");
       return;
+    }
+
+    if (profile?.subscription?.status !== "active") {
+      toast.error("Please upgrade to a Premium plan to generate your fitness plan.")
+      navigate("/dashboard/history?tab=premium", {
+        replace: true
+      })
+      return
     }
 
     setGenerating(true);
